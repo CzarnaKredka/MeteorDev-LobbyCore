@@ -2,3 +2,8 @@ name: MeteorDev-LobbyCore
 version: '1.0-SNAPSHOT'
 main: dev.meteordev.MeteorPlugin
 api-version: '1.21'
+authors:
+  - 'CzarnaKredka'
+  - 'Senbitek'
+description: 'Plugin stworzony przez oprogramowanie meteordev.pl'
+website: 'dc.meteordev.pl'
