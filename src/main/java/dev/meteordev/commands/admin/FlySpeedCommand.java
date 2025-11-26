@@ -22,7 +22,7 @@ public class FlySpeedCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    public void onUseFlySpeed(@Context CommandSender commandSender, @Arg("ilość") int speed) {
+    public void onUseFlySpeed(@Context CommandSender commandSender, @Arg("amount") int speed) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("SPEED", speed);
@@ -39,7 +39,7 @@ public class FlySpeedCommand {
     }
 
     @Execute
-    public void onUseFlySpeedOthers(@Context CommandSender commandSender, @Arg("ilość") int speed, @Arg("nick") Player target) {
+    public void onUseFlySpeedOthers(@Context CommandSender commandSender, @Arg("amount") int speed, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("SPEED", speed, "TARGET", target.getName());

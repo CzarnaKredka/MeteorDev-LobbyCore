@@ -21,8 +21,8 @@ public class SummonCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("core.meteordev.admin")
-    public void onUseSummon(@Context CommandSender commandSender, @Arg("nick") Player target) {
+    @Permission("meteordev.core.admin")
+    public void onUseSummon(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             target.teleport(player);

@@ -23,7 +23,7 @@ public class FeedCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("core.meteordev.user.feed")
+    @Permission("meteordev.core.user")
     public void onFeedOwn(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -39,8 +39,8 @@ public class FeedCommand {
     }
 
     @Execute
-    @Permission("core.meteordev.admin")
-    public void onFeedOthers(@Context CommandSender commandSender, @Arg("gracz") Player target) {
+    @Permission("meteordev.core.user")
+    public void onFeedOthers(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("TARGET", target.getName());

@@ -7,6 +7,7 @@ import dev.rollczi.litecommands.annotations.argument.Arg;
 import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
+import dev.rollczi.litecommands.annotations.permission.Permission;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Sound;
@@ -22,7 +23,8 @@ public class SpeedCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    public void onUseSpeed(@Context CommandSender commandSender, @Arg("speed") int speed) {
+    @Permission("meteordev.core.admin")
+    public void onUseSpeed(@Context CommandSender commandSender, @Arg("amount") int speed) {
 
         if (commandSender instanceof Player player) {
 
@@ -41,7 +43,8 @@ public class SpeedCommand {
     }
 
     @Execute
-    public void onUseSpeedOthers(@Context CommandSender commandSender, @Arg("speed") int speed, @Arg("nick") Player target) {
+    @Permission("meteordev.core.admin")
+    public void onUseSpeedOthers(@Context CommandSender commandSender, @Arg("amount") int speed, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("SPEED", speed, "TARGET", target.getName());

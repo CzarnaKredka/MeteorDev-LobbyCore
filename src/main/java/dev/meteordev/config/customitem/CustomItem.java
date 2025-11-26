@@ -1,6 +1,6 @@
 package dev.meteordev.config.customitem;
 
-import dev.meteordev.utils.ItemBuilderMix;
+import dev.meteordev.utils.ItemUtil;
 import eu.okaeri.configs.OkaeriConfig;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +15,6 @@ public class CustomItem extends OkaeriConfig {
     private int customModelData;
 
     public ItemStack toItemStack() {
-        return ItemBuilderMix.of(this.itemStack.clone()).setCmd(this.customModelData).toItemStack();
+        return ItemUtil.of(this.itemStack.clone()).setCmd(this.customModelData).toItemStack();
     }
 }

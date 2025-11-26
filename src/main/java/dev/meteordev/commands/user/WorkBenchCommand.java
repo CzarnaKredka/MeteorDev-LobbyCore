@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public class WorkBenchCommand {
 
     @Execute
-    @Permission("core.meteordev.user")
+    @Permission("meteordev.core.user")
     public void onUseWorkBench(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 

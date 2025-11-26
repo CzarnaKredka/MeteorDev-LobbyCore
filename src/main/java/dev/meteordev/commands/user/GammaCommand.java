@@ -25,7 +25,7 @@ public class GammaCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("core.meteordev.user")
+    @Permission("meteordev.core.user")
     public void onGammaUse(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -45,8 +45,8 @@ public class GammaCommand {
     }
 
     @Execute
-    @Permission("core.meteordev.admin")
-    public void onGammaUseOthers(@Context CommandSender commandSender, @Arg("gracz") Player target) {
+    @Permission("meteordev.core.user")
+    public void onGammaUseOthers(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("TARGET", target.getName());

@@ -7,6 +7,7 @@ import dev.rollczi.litecommands.annotations.argument.Arg;
 import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
+import dev.rollczi.litecommands.annotations.permission.Permission;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Sound;
@@ -15,13 +16,14 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-@Command(name = "clear")
+@Command(name = "clear", aliases = "wyczysc")
 @RequiredArgsConstructor(onConstructor_ = @Inject)
 public class ClearCommand {
 
     private final MessageConfig messageConfig;
 
     @Execute
+    @Permission("meteodev.core.admin")
     public void onClearOwn(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -35,7 +37,8 @@ public class ClearCommand {
     }
 
     @Execute
-    public void onClearOthers(@Context CommandSender commandSender, @Arg("gracz") Player target) {
+    @Permission("meteodev.core.admin")
+    public void onClearOthers(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("TARGET", target.getName());

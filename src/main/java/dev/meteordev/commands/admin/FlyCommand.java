@@ -21,7 +21,7 @@ public class FlyCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("dragmc.core.commands.admin.fly")
+    @Permission("meteordev.core.admin")
     public void onFlyToggle(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -42,8 +42,8 @@ public class FlyCommand {
     }
 
     @Execute
-    @Permission("dragmc.core.commands.admin.fly.others")
-    public void onFlyToggleOthers(@Context CommandSender commandSender, @Arg("gracz") Player target) {
+    @Permission("meteordev.core.admin")
+    public void onFlyToggleOthers(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             if (target.getAllowFlight()) {

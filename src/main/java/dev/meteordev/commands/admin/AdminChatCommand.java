@@ -17,21 +17,21 @@ import org.bukkit.entity.Player;
 
 import java.util.Map;
 
-@Command(name = "adminchat")
+@Command(name = "adminchat", aliases = "achat")
 @RequiredArgsConstructor(onConstructor_ = @Inject)
 public class AdminChatCommand {
 
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("dragmc.core.commands.admin.adminchat")
-    public void onAdminChatMessage(@Context CommandSender commandSender, @Join("wiadomość") String message) {
+    @Permission("meteodev.core.admin")
+    public void onAdminChatMessage(@Context CommandSender commandSender, @Join("message") String message) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("MESSAGE", message, "PLAYER", player.getName());
 
             for (Player online : Bukkit.getOnlinePlayers()) {
-                if (online.hasPermission("dragmc.core.commands.admin.adminchat.notify") || online.isOp()) {
+                if (online.hasPermission("meteordev.core.admin.notify") || online.isOp()) {
 
                     this.messageConfig.onAdminChatMessage.send(online, placeholders);
 

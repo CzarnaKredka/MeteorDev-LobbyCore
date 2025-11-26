@@ -7,6 +7,7 @@ import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
 import dev.rollczi.litecommands.annotations.join.Join;
+import dev.rollczi.litecommands.annotations.permission.Permission;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
@@ -23,7 +24,8 @@ public class AlertCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    public void onAlertUse(@Context CommandSender commandSender, @Join("wiadomość") String message) {
+    @Permission("meteodev.core.admin")
+    public void onAlertUse(@Context CommandSender commandSender, @Join("message") String message) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("MESSAGE", message);

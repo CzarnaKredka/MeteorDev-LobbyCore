@@ -7,6 +7,7 @@ import dev.meteordev.utils.ConsoleUtil;
 import dev.rollczi.litecommands.annotations.command.Command;
 import dev.rollczi.litecommands.annotations.context.Context;
 import dev.rollczi.litecommands.annotations.execute.Execute;
+import dev.rollczi.litecommands.annotations.permission.Permission;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
@@ -24,6 +25,7 @@ public class ChatCommand {
     private final ChatManager chatManager;
 
     @Execute(name = "on")
+    @Permission("meteodev.core.admin")
     public void onEnableChat(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -44,6 +46,7 @@ public class ChatCommand {
     }
 
     @Execute(name = "off")
+    @Permission("meteodev.core.admin")
     public void onDisableChat(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -64,6 +67,7 @@ public class ChatCommand {
     }
 
     @Execute(name = "clear")
+    @Permission("meteodev.core.admin")
     public void onClearChat(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 

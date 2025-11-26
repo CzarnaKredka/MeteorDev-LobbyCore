@@ -23,7 +23,7 @@ public class HealCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("core.meteordev.user")
+    @Permission("meteordev.core.user")
     public void onHealOwn(@Context CommandSender commandSender) {
         if (commandSender instanceof Player player) {
 
@@ -40,8 +40,8 @@ public class HealCommand {
     }
 
     @Execute
-    @Permission("core.meteordev.admin")
-    public void onHealOthers(@Context CommandSender commandSender, @Arg("gracz") Player target) {
+    @Permission("meteordev.core.user")
+    public void onHealOthers(@Context CommandSender commandSender, @Arg("player") Player target) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("TARGET", target.getName());

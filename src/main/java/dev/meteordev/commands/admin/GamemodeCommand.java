@@ -24,37 +24,37 @@ public class GamemodeCommand {
     private final MessageConfig messageConfig;
 
     @Execute
-    @Permission("simhc.lobby.commands.admin.gamemode.all")
+    @Permission("meteordev.core.admin.gamemode.all")
     public void onGamemodeOwn(@Context CommandSender commandSender, @Arg("gamemode") GameMode gameMode) {
             this.playerRunnable(commandSender, () -> this.changeGamemodeMethod((Player) commandSender, gameMode));
     }
 
     @Execute(name = "survival", aliases = "0")
-    @Permission("simhc.lobby.commands.admin.gamemode.survival")
+    @Permission("meteordev.core.admin.gamemode.survival")
     public void changeGamemodeToSurvival(@Context CommandSender commandSender) {
         this.playerRunnable(commandSender, () -> this.changeGamemodeMethod((Player) commandSender, GameMode.SURVIVAL));
     }
 
     @Execute(name = "creative", aliases = "1")
-    @Permission("simhc.lobby.commands.admin.gamemode.creative")
+    @Permission("meteordev.core.admin.gamemode.creative")
     public void changeGamemodeToCreative(@Context CommandSender commandSender) {
         this.playerRunnable(commandSender, () -> this.changeGamemodeMethod((Player) commandSender, GameMode.CREATIVE));
     }
 
     @Execute(name = "adventure", aliases = "2")
-    @Permission("simhc.lobby.commands.admin.gamemode.adventure")
+    @Permission("meteordev.core.admin.gamemode.adventure")
     public void changeGamemodeToAdventure(@Context CommandSender commandSender) {
         this.playerRunnable(commandSender, () -> this.changeGamemodeMethod((Player) commandSender, GameMode.ADVENTURE));
     }
 
     @Execute(name = "spectator", aliases = "3")
-    @Permission("simhc.lobby.commands.admin.gamemode.spectator")
+    @Permission("meteordev.core.admin.gamemode.spectator")
     public void changeGamemodeToSpectator(@Context CommandSender commandSender) {
         this.playerRunnable(commandSender, () -> this.changeGamemodeMethod((Player) commandSender, GameMode.SPECTATOR));
     }
 
     @Execute
-    public void changeGamemodeOthers(@Context CommandSender commandSender, @Arg("gracz") Player target, @Arg("gamemode") GameMode gameMode) {
+    public void changeGamemodeOthers(@Context CommandSender commandSender, @Arg("player") Player target, @Arg("gamemode") GameMode gameMode) {
         if (commandSender instanceof Player player) {
 
             Map<String, Object> placeholders = Map.of("GAMEMODE", gameMode, "TARGET", target.getName());
