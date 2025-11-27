@@ -13,6 +13,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -69,6 +70,12 @@ public class PlayerInteractListener implements Listener {
     public void onDrag(InventoryDragEvent e) {
         Player player = (Player) e.getWhoClicked();
 
+        // Checks player is op
+
+        if (player.isOp()) {
+            e.setCancelled(false);
+        }
+
         // Cancelled drags items inventory
 
         e.setCancelled(true);
@@ -83,8 +90,31 @@ public class PlayerInteractListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
+    public void onClick(InventoryClickEvent e) {
+        Player player = (Player) e.getWhoClicked();
+
+        // Checks player is op
+
+        if (player.isOp()) {
+            e.setCancelled(false);
+        }
+
+        // Cancelled clicks items inventory
+
+        e.setCancelled(true);
+
+        player.sendTitle(
+                ChatUtil.fixColor("&4&lx"),
+                ChatUtil.fixColor("&cNie możesz przeciągać przedmiotów")
+        );
+
+        player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO,1,1);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onDrop(PlayerDropItemEvent e) {
         Player player = e.getPlayer();
+
 
         // Cancelled drops items inventory
 
@@ -97,6 +127,8 @@ public class PlayerInteractListener implements Listener {
 
         player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO,1,1);
     }
+
+
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlace(BlockPlaceEvent e) {
