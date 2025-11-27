@@ -1,17 +1,37 @@
 package dev.meteordev;
 
+import dev.meteordev.config.MenusConfig;
+import dev.meteordev.config.MessageConfig;
+import dev.meteordev.config.PluginConfig;
+import dev.meteordev.managers.ChatManager;
 import eu.okaeri.platform.bukkit.OkaeriBukkitPlugin;
+import eu.okaeri.platform.core.annotation.Register;
 import eu.okaeri.platform.core.plan.ExecutionPhase;
 import eu.okaeri.platform.core.plan.Planned;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
+// Configuration
+
+@Register(MenusConfig.class)
+@Register(MessageConfig.class)
+@Register(PluginConfig.class)
+
+// Managers
+@Register(ChatManager.class)
 public final class MeteorPlugin extends OkaeriBukkitPlugin {
 
     @Getter private static MeteorPlugin meteorPlugin;
+
+    @Inject private MenusConfig menusConfig;
+    @Inject private MessageConfig messageConfig;
+    @Inject private PluginConfig pluginConfig;
+    @Inject private ChatManager chatManager;
 
     @Planned(ExecutionPhase.PRE_SETUP)
     public void preSetup() {
@@ -49,5 +69,14 @@ public final class MeteorPlugin extends OkaeriBukkitPlugin {
             getLogger().log(Level.WARNING, "");
             meteorPlugin.getServer().getPluginManager().disablePlugin(meteorPlugin);
         }
+
+        // Implementation of service managment plugin:
+
+        new MeteorService(
+                this.messageConfig,
+                this.pluginConfig,
+                this.menusConfig,
+                this.chatManager
+        );
     }
 }
