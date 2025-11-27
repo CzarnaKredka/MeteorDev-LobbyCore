@@ -14,7 +14,6 @@ import dev.meteordev.config.PluginConfig;
 import dev.meteordev.listeners.PlayerInteractListener;
 import dev.meteordev.listeners.PlayerJoinListener;
 import dev.meteordev.listeners.PlayerQuitListener;
-import dev.meteordev.listeners.server.ServerListener;
 import dev.meteordev.managers.ChatManager;
 import dev.meteordev.utils.ChatUtil;
 import dev.rollczi.litecommands.bukkit.LiteBukkitFactory;
@@ -36,37 +35,20 @@ public class MeteorService {
 
         // Implementation of core events in lobby:
 
-        MeteorPlugin.getMeteorPlugin().getServer().getPluginManager().registerEvents(
-                new ServerListener(
-                        this.pluginConfig,
-                        this.messageConfig
-                ),
-                MeteorPlugin.getMeteorPlugin()
+
+        MeteorPlugin.getPlugin().getServer().getPluginManager().registerEvents(
+                new PlayerInteractListener(this.pluginConfig, this.menusConfig, this.messageConfig),
+                MeteorPlugin.getPlugin()
+        );
+        MeteorPlugin.getPlugin().getServer().getPluginManager().registerEvents(
+                new PlayerJoinListener(this.pluginConfig,this.messageConfig),
+                MeteorPlugin.getPlugin()
+        );
+        MeteorPlugin.getPlugin().getServer().getPluginManager().registerEvents(
+                new PlayerQuitListener(this.messageConfig),
+                MeteorPlugin.getPlugin()
         );
 
-        MeteorPlugin.getMeteorPlugin().getServer().getPluginManager().registerEvents(
-                new PlayerInteractListener(
-                        this.pluginConfig,
-                        this.menusConfig,
-                        this.messageConfig
-                ),
-                MeteorPlugin.getMeteorPlugin()
-        );
-
-        MeteorPlugin.getMeteorPlugin().getServer().getPluginManager().registerEvents(
-                new PlayerJoinListener(
-                        this.pluginConfig,
-                        this.messageConfig
-                ),
-                MeteorPlugin.getMeteorPlugin()
-        );
-
-        MeteorPlugin.getMeteorPlugin().getServer().getPluginManager().registerEvents(
-                new PlayerQuitListener(
-                        this.messageConfig
-                ),
-                MeteorPlugin.getMeteorPlugin()
-        );
 
 
         // Implementation of core commands in lobby:

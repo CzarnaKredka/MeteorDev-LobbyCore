@@ -4,14 +4,13 @@ import dev.meteordev.config.MenusConfig;
 import dev.meteordev.config.MessageConfig;
 import dev.meteordev.config.PluginConfig;
 import dev.meteordev.managers.ChatManager;
+import eu.okaeri.injector.annotation.Inject;
 import eu.okaeri.platform.bukkit.OkaeriBukkitPlugin;
 import eu.okaeri.platform.core.annotation.Register;
 import eu.okaeri.platform.core.plan.ExecutionPhase;
 import eu.okaeri.platform.core.plan.Planned;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
-import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,7 +25,7 @@ import java.util.logging.Level;
 @Register(ChatManager.class)
 public final class MeteorPlugin extends OkaeriBukkitPlugin {
 
-    @Getter private static MeteorPlugin meteorPlugin;
+    @Getter private static MeteorPlugin plugin;
 
     @Inject private MenusConfig menusConfig;
     @Inject private MessageConfig messageConfig;
@@ -35,14 +34,15 @@ public final class MeteorPlugin extends OkaeriBukkitPlugin {
 
     @Planned(ExecutionPhase.PRE_SETUP)
     public void preSetup() {
-        meteorPlugin = this;
+        plugin = this;
     }
+
 
     @Planned(ExecutionPhase.STARTUP)
     public void startUp() {
 
         final List<String> authors = Arrays.asList("CzarnaKredka", "Senbitek");
-        final List<String> actualAuthors = meteorPlugin.getDescription().getAuthors();
+        final List<String> actualAuthors = plugin.getDescription().getAuthors();
 
         // Checks authors main plugin [ CzarnaKredka, Senbitek ]
 
@@ -54,12 +54,12 @@ public final class MeteorPlugin extends OkaeriBukkitPlugin {
             getLogger().warning("WYŁĄCZAM PLUGIN (...)");
             getLogger().warning("-----------------------");
             getLogger().warning("");
-            meteorPlugin.getServer().getPluginManager().disablePlugin(meteorPlugin);
+            plugin.getServer().getPluginManager().disablePlugin(plugin);
         }
 
         // Checks actually plugin name [ MeteorDev-LobbyCore ] :
 
-        if (!meteorPlugin.getDescription().getName().contains("MeteorDev-LobbyCore")) {
+        if (!plugin.getDescription().getName().contains("MeteorDev-LobbyCore")) {
             getLogger().log(Level.WARNING, "");
             getLogger().log(Level.WARNING, "-----------------------");
             getLogger().log(Level.WARNING, "ZMIENIONO NAZWĘ PLUGINU!");
@@ -67,7 +67,7 @@ public final class MeteorPlugin extends OkaeriBukkitPlugin {
             getLogger().log(Level.WARNING, "WYŁĄCZAM PLUGIN (...)");
             getLogger().log(Level.WARNING, "-----------------------");
             getLogger().log(Level.WARNING, "");
-            meteorPlugin.getServer().getPluginManager().disablePlugin(meteorPlugin);
+            plugin.getServer().getPluginManager().disablePlugin(plugin);
         }
 
         // Implementation of service managment plugin:

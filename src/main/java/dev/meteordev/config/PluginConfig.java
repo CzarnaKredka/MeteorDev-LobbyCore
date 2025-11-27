@@ -25,7 +25,7 @@ public class PluginConfig extends OkaeriConfig {
                     " &8● &aKliknij &2PRAWYM&a, aby otworzyć!"
             )))
             .toItemStack(),
-            5,
+            4,
             1
     );
 
@@ -41,7 +41,7 @@ public class PluginConfig extends OkaeriConfig {
                     " &8● &aKliknij &2PRAWYM&a, aby otworzyć!"
             )))
             .toItemStack(),
-            9,
+            8,
             1
     );
 
@@ -57,7 +57,7 @@ public class PluginConfig extends OkaeriConfig {
                     " &8● &aPrzytrzymaj w &2RĘCĘ&a, aby zawalczyć!"
             )))
             .toItemStack(),
-            1,
+            0,
             1
     );
 }
