@@ -7,6 +7,7 @@ import eu.okaeri.configs.OkaeriConfig;
 import eu.okaeri.configs.annotation.Comment;
 import eu.okaeri.platform.core.annotation.Configuration;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 
 import java.util.Arrays;
 
@@ -56,6 +57,7 @@ public class PluginConfig extends OkaeriConfig {
                     "",
                     " &8● &aPrzytrzymaj w &2RĘCĘ&a, aby zawalczyć!"
             )))
+            .addFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS)
             .toItemStack(),
             0,
             1

@@ -57,12 +57,7 @@ public class PlayerInteractListener implements Listener {
 
             new PlayerProfileMenu(this.menusConfig, this.messageConfig).openMainMenu(player);
 
-            player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK,1,1);
-
-        } else if (itemName.equalsIgnoreCase(this.pluginConfig.swordItem.toItemStack().getItemMeta().getDisplayName())) {
-            e.setCancelled(true);
-            player.sendMessage("§cPrzygotowujesz się do walki...");
-
+            player.playSound(player.getLocation(), Sound.UI_BUTTON_CLICK, 1, 1);
         }
     }
 
@@ -72,9 +67,7 @@ public class PlayerInteractListener implements Listener {
 
         // Checks player is op
 
-        if (player.isOp()) {
-            e.setCancelled(false);
-        }
+        if (player.isOp()) { return; }
 
         // Cancelled drags items inventory
 
@@ -95,9 +88,7 @@ public class PlayerInteractListener implements Listener {
 
         // Checks player is op
 
-        if (player.isOp()) {
-            e.setCancelled(false);
-        }
+        if (player.isOp()) { return; }
 
         // Cancelled clicks items inventory
 

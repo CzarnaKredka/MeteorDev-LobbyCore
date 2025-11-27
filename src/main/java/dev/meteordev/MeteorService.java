@@ -14,6 +14,7 @@ import dev.meteordev.config.PluginConfig;
 import dev.meteordev.listeners.PlayerInteractListener;
 import dev.meteordev.listeners.PlayerJoinListener;
 import dev.meteordev.listeners.PlayerQuitListener;
+import dev.meteordev.listeners.pvp.PlayerSwordInteract;
 import dev.meteordev.managers.ChatManager;
 import dev.meteordev.utils.ChatUtil;
 import dev.rollczi.litecommands.bukkit.LiteBukkitFactory;
@@ -46,6 +47,11 @@ public class MeteorService {
         );
         MeteorPlugin.getPlugin().getServer().getPluginManager().registerEvents(
                 new PlayerQuitListener(this.messageConfig),
+                MeteorPlugin.getPlugin()
+        );
+
+        MeteorPlugin.getPlugin().getServer().getPluginManager().registerEvents(
+                new PlayerSwordInteract(this.pluginConfig, this.messageConfig),
                 MeteorPlugin.getPlugin()
         );
 
