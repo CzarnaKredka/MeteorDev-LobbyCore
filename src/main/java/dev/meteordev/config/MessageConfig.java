@@ -30,13 +30,13 @@ public class MessageConfig extends OkaeriConfig {
 
     @Comment
     @Comment("Wiadomość przy zmianie szybkości latania /flyspeed")
-    public Message onFlySpeedUse = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono tryb latania na &c{SPEED} &8∙");
-    public Message onFlySpeedUsePlayer = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono tryb latania na &c{SPEED} &fgraczowi &c{TARGET} &8∙");
+    public Message onFlySpeedUse = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono tryb latania na &#FFAE42{SPEED} &8∙");
+    public Message onFlySpeedUsePlayer = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono tryb latania na &#FFAE42{SPEED} &fgraczowi &6{TARGET} &8∙");
 
     @Comment
     @Comment("Wiadomość przy zmianie szybkości chodzenia /speed")
-    public Message onSpeedUse = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono szybkość chodzenia na &c{SPEED} &8∙");
-    public Message onSpeedUsePlayer = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono szybkość chodzenia na &c{SPEED} &fgraczowi &c{TARGET} &8∙");
+    public Message onSpeedUse = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono szybkość chodzenia na &#FFAE42{SPEED} &8∙");
+    public Message onSpeedUsePlayer = new Message(MessageType.TITLE_SUBTITLE, "&#FFAE42&lᴍ&#FEB84E&lᴇ&#FCC15A&lᴛ&#FBCB66&lᴇ&#F9D472&lᴏ&#F8DE7E&lʀ&f&lᴅᴇᴠ%NOWA_LINIA%&8∙ &fPomyślnie zmieniono szybkość chodzenia na &#FFAE42{SPEED} &fgraczowi &6{TARGET} &8∙");
 
     @Comment()
     @Comment("Wiadomości przy włączeniu/wyłączeniu fly:")
@@ -74,9 +74,9 @@ public class MessageConfig extends OkaeriConfig {
 
     @Comment()
     @Comment("Wiadomość przy użyciu /chat:")
-    public Message onDisableChat = new Message(MessageType.CHAT, "&r\n     &#f8de7e&lᴄ&#FF4E4E&lʜ&#FF5353&lᴀ&#FF5959&lᴛ &#FF6464&lᴢ&#FF6A6A&lᴀ&#FF6F6F&lꜱ&#ffae42&lᴛ&#FF6F6F&lᴏ&#FF6868&lᴘ&#FF6262&lᴏ&#FF5B5B&lᴡ&#FF5555&lᴀ&#FF4E4E&lɴ&#f8de7e&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42wyłączył &fchat!\n&r");
-    public Message onClearChat = new Message(MessageType.CHAT, "&r\n     &#f8de7e&lᴄ&#FF4E4E&lʜ&#FF5353&lᴀ&#FF5959&lᴛ &#FF6464&lᴡ&#FF6A6A&lʏ&#FF6F6F&lᴄ&#ffae42&lᴢ&#FF6F6F&lʏ&#FF6A6A&lꜱ&#FF6464&lᴢ&#FF5F5F&lᴄ&#FF5959&lᴢ&#FF5353&lᴏ&#FF4E4E&lɴ&#f8de7e&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42wyczyścił &fchat!\n&r");
-    public Message onEnableChat = new Message(MessageType.CHAT, "&r\n     &#f8de7e&lᴄ&#FF4E4E&lʜ&#FF5555&lᴀ&#FF5B5B&lᴛ &#FF6868&lᴡ&#FF6F6F&lᴢ&#ffae42&lɴ&#FF6E6E&lᴏ&#FF6666&lᴡ&#FF5F5F&lɪ&#FF5757&lᴏ&#FF5050&lɴ&#f8de7e&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42włączył &fchat!\n&r");
+    public Message onDisableChat = new Message(MessageType.CHAT, "&r\n     &#F8DE7E&lᴄ&#F8DE7E&lʜ&#F8DE7E&lᴀ&#F8DE7E&lᴛ &#F8DE7E&lᴢ&#F8DE7E&lᴀ&#F8DE7E&lꜱ&#F8DE7E&lᴛ&#F8DE7E&lᴏ&#F8DE7E&lᴘ&#F8DE7E&lᴏ&#F8DE7E&lᴡ&#F8DE7E&lᴀ&#F8DE7E&lɴ&#F8DE7E&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42wyłączył &fchat!\n&r");
+    public Message onClearChat = new Message(MessageType.CHAT, "&r\n    &#F8DE7E&lᴄ&#F8DE7E&lʜ&#F8DE7E&lᴀ&#F8DE7E&lᴛ &#F8DE7E&lᴡ&#F8DE7E&lʏ&#F8DE7E&lᴄ&#F8DE7E&lᴢ&#F8DE7E&lʏ&#F8DE7E&lꜱ&#F8DE7E&lᴢ&#F8DE7E&lᴄ&#F8DE7E&lᴢ&#F8DE7E&lᴏ&#F8DE7E&lɴ&#F8DE7E&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42wyczyścił &fchat!\n&r");
+    public Message onEnableChat = new Message(MessageType.CHAT, "&r\n     &#F8DE7E&lᴄ&#F8DE7E&lʜ&#F8DE7E&lᴀ&#F8DE7E&lᴛ &#F8DE7E&lᴡ&#F8DE7E&lᴢ&#F8DE7E&lɴ&#F8DE7E&lᴏ&#F8DE7E&lᴡ&#F8DE7E&lɪ&#F8DE7E&lᴏ&#F8DE7E&lɴ&#F8DE7E&lʏ\n&r\n&8&l⏵ &fAdministrator o nicku &c{PLAYER}\n&8&l⏵ &fPomyślnie &#ffae42włączył &fchat!\n&r");
 
     @Comment()
     @Comment("Wiadomość przy wejściu w tryb pvp:")
