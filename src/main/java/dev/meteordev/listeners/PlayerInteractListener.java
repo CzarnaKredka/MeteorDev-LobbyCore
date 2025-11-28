@@ -106,6 +106,9 @@ public class PlayerInteractListener implements Listener {
     public void onDrop(PlayerDropItemEvent e) {
         Player player = e.getPlayer();
 
+        // Checks player is op
+
+        if (player.isOp()) { return; }
 
         // Cancelled drops items inventory
 
@@ -124,6 +127,10 @@ public class PlayerInteractListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlace(BlockPlaceEvent e) {
         Player player = e.getPlayer();
+
+        // Checks player is op
+
+        if (player.isOp()) { return; }
 
         // Cancelled place items inventory
 

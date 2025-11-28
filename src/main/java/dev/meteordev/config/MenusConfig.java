@@ -15,8 +15,8 @@ import java.util.List;
 public class MenusConfig extends OkaeriConfig {
 
     @Comment
-    @Comment("Skonfiguruj menu warpów:")
-    public MenusSetup warpsMenu = new MenusSetup(
+    @Comment("Skonfiguruj menu profilu:")
+    public MenusSetup playerProfileMenu = new MenusSetup(
             "&8Dostępne warpy",
             6,
             List.of(
